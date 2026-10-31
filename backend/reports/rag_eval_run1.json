@@ -1,0 +1,640 @@
+{
+  "generated_at": "2026-10-19T10:10:45",
+  "upload_id": 5,
+  "retrieval": {
+    "vector": {
+      "precision_at_8": 0.9062,
+      "hit_at_1": 0.8125
+    },
+    "keyword": {
+      "precision_at_8": 0.8672,
+      "hit_at_1": 0.8125
+    },
+    "hybrid": {
+      "precision_at_8": 0.9531,
+      "hit_at_1": 0.9375
+    }
+  },
+  "rag": {
+    "numeric_accuracy": 1.0,
+    "out_of_scope_declined": 1.0,
+    "answers_with_invalid_citation": 0.0,
+    "unsupported_number_first_draft": 0.0,
+    "answers_with_unsupported_number": 0.0,
+    "latency_ms_p50": 6837,
+    "latency_ms_p95": 11984
+  },
+  "baseline": {
+    "numeric_accuracy": 0.5,
+    "out_of_scope_declined": 1.0,
+    "answers": [
+      {
+        "type": "numeric",
+        "question": "How many tickets are in this dataset?",
+        "correct": true,
+        "answer": "The dataset contains a total of **1,500 tickets**.\n\nThis comprehensive dataset provides a rich ground for analyzing IT operations and identifying areas for improvement. Key insights include:\n\n- **Automation Opportunities**: 652 tickets (43.5%) can be automated, with an average MTTR of 8.38 hours, indicating significant potential for reducing resolution times.\n- **Manual Only Tickets**: 460 tickets (30.7%) are entirely manual, with an average MTTR of 59.36 hours, highlighting areas where automation could drastically improve efficiency.\n- **Already Automated Tickets**: 388 tickets (25.9%) are already benefiting from automation, with an average MTTR of 0.55 hours, showing the effectiveness of existing automation efforts.\n\nThe BERT clustering analysis reveals several clusters with high automation scores, such as Cluster 15 and Cluster 2, which could be prioritized for further automation implementation. Additionally, clusters like Cluster 27 and Cluster 12, with high MTTR and low automation scores, present clear opportunities for process optimization.\n\n**Follow-up Action**: Generate a detailed report on the top 5 clusters with the highest potential for automation, focusing on reducing MTTR and improving team efficiency. This will help in prioritizing automation projects and maximizing ROI."
+      },
+      {
+        "type": "numeric",
+        "question": "How many P1 tickets are there?",
+        "correct": false,
+        "answer": "Based on the provided data, the dataset does not include information about the priority level of the tickets (P1, P2, P3, P4). Therefore, it's not possible to determine the number of P1 tickets from the given context.\n\n**Suggested Follow-Up Action:**\nTo address this gap, we recommend exporting the ticket data and including the priority field. This will allow us to analyze the distribution of P1 tickets and provide more detailed insights. Additionally, this will help in understanding the impact of priority levels on MTTR and automation scores."
+      },
+      {
+        "type": "numeric",
+        "question": "How many P2 tickets are there?",
+        "correct": false,
+        "answer": "The provided dataset does not contain specific information about ServiceNow incident priority levels, including P2 tickets. Therefore, we cannot determine the exact number of P2 tickets from the given data.\n\nHowever, we can analyze the overall ticket volume and categorization to suggest a follow-up action. The dataset includes 1,500 tickets distributed across 30 clusters and 12 teams. The breakdown of automation potential shows that 43.5% of tickets can be automated, which is a significant opportunity for efficiency gains.\n\n**Suggested Follow-Up Action:**\n- Generate a detailed report on the distribution of priority levels across the clusters and teams.\n- Conduct a deeper analysis to correlate priority levels with MTTR, automation scores, and team performance metrics.\n- Use the generated export file to identify patterns and potential areas for automation that could specifically target P2 tickets.\n\nWould you like to proceed with generating a report on priority levels or any other specific analysis?"
+      },
+      {
+        "type": "numeric",
+        "question": "Which team handled the most tickets?",
+        "correct": true,
+        "answer": "**Service Desk** handled the most tickets with 287 tickets processed. This team also demonstrated the fastest Mean Time to Resolution (MTTR) of 2.74 hours, indicating efficient handling of their workload.\n\n### Analysis Insights:\n- **Service Desk** has a high automation score of 93.41, suggesting that a significant portion of their tickets can be automated, potentially reducing their workload and improving efficiency.\n- **Wintel L1** and **Linux L1** also showed excellent performance with high automation scores (98.45 and 88.99, respectively), indicating that these teams could benefit from further automation efforts.\n- **App Support L3** and **Network L2** had the lowest automation scores (8.49 and 25.61, respectively), which might indicate areas where more manual intervention is required or where additional training could improve automation.\n\n### Suggested Follow-Up Actions:\n- Conduct a deeper analysis on the **App Support L3** and **Network L2** teams to identify specific ticket types that are not being effectively automated.\n- Explore opportunities for **Service Desk** to further streamline their processes and reduce MTTR.\n- Consider implementing more advanced automation strategies for **Wintel L1** and **Linux L1** to leverage their high automation scores.\n\n### Potential Savings:\n- Assuming an average ticket handling time of 2.74 hours (Service Desk's MTTR), and a cost per ticket hour of \u20b9850, the Service Desk could save approximately \u20b9755,990 annually if their automation score could be improved to 100%.\n\nWould you like to explore these teams in more detail or proceed with a deeper analysis on any specific team?"
+      },
+      {
+        "type": "numeric",
+        "question": "Which team has the longest average resolution time?",
+        "correct": true,
+        "answer": "The team with the longest average resolution time (MTTR) is the **App Support L3** team, with an MTTR of **88.35 hours**.\n\n### Detailed Analysis:\n- **App Support L3** has the highest MTTR among all teams, indicating that their tickets take the longest time to resolve.\n- This could be due to the complexity of the issues they handle, the number of tickets they manage, or potential inefficiencies in their processes.\n- The reassignment rate is also relatively high at **1.67%**, suggesting that there might be challenges in resolving issues within the first responder's scope.\n\n### Recommendations:\n1. **Process Review**: Conduct a detailed review of the processes and workflows within the App Support L3 team to identify bottlenecks.\n2. **Skill Gap Analysis**: Assess whether the team has the necessary skills and resources to handle the complexity of the issues they are dealing with.\n3. **Automation Opportunities**: Explore the potential for automation in this team, particularly in areas where reassignment rates are high and MTTR is longest.\n4. **Follow-Up Action**: Suggest a deeper analysis of the tickets handled by the App Support L3 team to understand the nature of the issues and the root causes of the long resolution times.\n\n### Next Steps:\n- Generate a detailed report on the tickets handled by the App Support L3 team to identify common patterns and issues.\n- Schedule a meeting with the team to discuss the findings and explore potential improvements.\n\nThis analysis provides a clear starting point for addressing the longest resolution times and improving overall efficiency."
+      },
+      {
+        "type": "numeric",
+        "question": "What is the average resolution time across all tickets, in hours?",
+        "correct": true,
+        "answer": "The average resolution time (MTTR) across all 1,500 tickets is **21.99 hours**.\n\n### Analysis:\n- **Manual Process:** The highest MTTR at **59.36 hours** indicates significant inefficiencies in this process.\n- **Self-Service Portal:** Offers the fastest resolution time at **6.68 hours**, suggesting a strong self-service capability.\n- **Existing Automation:** While automated, it still has a relatively high MTTR of **0.33 hours**, indicating potential areas for improvement.\n- **Script/Runbook:** Resolves tickets in **5.29 hours**, showing a good balance between automation and script execution.\n- **Automation Tuning:** The lowest MTTR at **0.86 hours** highlights the effectiveness of fine-tuned automation.\n- **Auto-Remediation:** At **5.76 hours**, it still benefits from automation but may need further optimization.\n- **RPA:** With an MTTR of **23.69 hours**, it has the highest resolution time among automation methods, possibly due to complex processes.\n- **Self-Healing:** The lowest MTTR at **0.67 hours** demonstrates the effectiveness of self-healing mechanisms.\n\n### Recommendations:\n1. **Focus on Manual Processes:** Given their high MTTR, these processes should be prioritized for automation or process optimization.\n2. **Evaluate RPA Processes:** Further analysis is needed to understand why RPA has a high MTTR despite being automated.\n3. **Continuous Improvement:** Regularly review and update automation scripts and runbooks to maintain efficiency.\n\nWould you like to export this data for a deeper analysis or further breakdown by team?"
+      },
+      {
+        "type": "numeric",
+        "question": "What share of P1 tickets breached their 4 hour SLA?",
+        "correct": true,
+        "answer": "Based on the provided data, 65.5% of P1 (Critical) tickets breached their 4-hour SLA. This is significantly higher than the breach rates for other priorities:\n\n- **P1 (Critical): 65.5% breached**\n- **P2 (High): 34.9% breached**\n- **P3 (Moderate): 9.5% breached**\n- **P4 (Low): 12.7% breached**\n\n### Analysis and Insights:\n- **High SLA Breach Rate for P1 Tickets**: The high breach rate for P1 tickets indicates a significant risk in meeting service level agreements (SLA). This could be due to complex issues, resource constraints, or misclassification of tickets.\n- **MTTR Analysis**: The Mean Time To Resolution (MTTR) for P1 tickets is 53.08 hours, which is nearly 13 times higher than the 4-hour SLA. This suggests that critical issues are taking much longer to resolve, leading to frequent breaches.\n\n### Suggested Follow-Up Actions:\n1. **Investigate Root Causes**: Conduct a deeper analysis to identify the root causes of the prolonged resolution times for P1 tickets. This could involve reviewing the tickets, understanding the nature of the issues, and assessing resource availability.\n2. **Resource Allocation**: Ensure that critical issues are prioritized and that sufficient resources are allocated to address them promptly.\n3. **SLA Review and Adjustments**: Consider revisiting the SLA for P1 tickets to ensure it is realistic given the current resolution times. Alternatively, adjust the resolution process to meet the existing SLA.\n4. **Automated Escalation**: Implement automated escalation rules for P1 tickets that trigger immediate alerts and notifications to ensure timely intervention.\n\n### Next Steps:\n- Generate a detailed report on the P1 tickets that breached the SLA, including the nature of the issues and the steps taken to resolve them.\n- Schedule a meeting with the IT Operations team to discuss the findings and plan corrective actions.\n\nBy addressing these issues, you can reduce the SLA breach rate for P1 tickets and improve overall service quality."
+      },
+      {
+        "type": "numeric",
+        "question": "Which channel has the most tickets?",
+        "correct": false,
+        "answer": "Based on the provided data, **Cluster 15** has the highest number of tickets with **120 tickets**. This cluster is characterized by the following metrics:\n- **MTTR (Mean Time To Resolution): 2.22 hours**\n- **Auto Score: 94.07**\n- **Team: Service Desk**\n- **Solution: Self-Service Portal**\n- **Category: Password reset**\n\n### Analysis and Insights:\n- **High Automation Potential**: The auto score of 94.07 indicates that these tickets can be highly automated, suggesting that the self-service portal is effective for password reset issues.\n- **Low MTTR**: The relatively low MTTR of 2.22 hours suggests that the Service Desk team is efficiently resolving these tickets, which is beneficial for reducing overall resolution time.\n\n### Suggested Follow-Up Action:\n- **Deep Dive into Automation Opportunities**: Further analyze the 120 tickets in Cluster 15 to identify specific patterns or common issues that can be automated using self-service portals or chatbots. This could significantly reduce the workload on the Service Desk team and improve resolution times.\n\n### Additional Metrics:\n- **Overall Automation Potential**: 652 out of 1,500 tickets (43.5%) can be automated, with an average MTTR of 8.38 hours. This suggests a substantial opportunity for automation across the board.\n- **Team Performance**: The Service Desk team has the highest number of tickets (287) and the lowest MTTR (2.74 hours), indicating they are highly efficient in resolving these types of issues.\n\n### Conclusion:\nCluster 15, with its high volume of password reset tickets, presents a clear opportunity for further automation. A deeper analysis of this cluster could lead to significant improvements in efficiency and cost savings."
+      },
+      {
+        "type": "numeric",
+        "question": "How many tickets came in through the Self-service channel?",
+        "correct": false,
+        "answer": "Based on the provided dataset, **273 tickets** were processed through the Self-Service Portal channel. This represents **18.2%** of the total 1,500 tickets analyzed.\n\n### Analysis Insights:\n- **MTTR for Self-Service Tickets**: The Mean Time to Resolution (MTTR) for tickets handled through the Self-Service Portal is **6.68 hours**. This is significantly lower than the overall MTTR of 21.99 hours, indicating that self-service is an effective channel for resolving issues quickly.\n- **Automation Score**: The automation score for Self-Service Portal tickets is **98.35**, which is very high, suggesting that these tickets are highly suitable for automation, potentially reducing future resolution times.\n\n### Follow-Up Action:\nGiven the high automation score and low MTTR, it would be beneficial to:\n- **Automate these tickets**: Implement automation for the Self-Service Portal tickets to further reduce resolution times and improve customer satisfaction.\n- **Analyze ticket content**: Examine the content of these tickets to identify common issues that can be pre-emptively addressed through self-service mechanisms.\n\n### Next Steps:\n- **Generate an export file**: For a deeper analysis, we can generate an export file of the Self-Service Portal tickets to explore specific ticket details and patterns.\n- **Propose a pilot project**: Suggest a pilot project to automate a subset of these tickets to measure the impact and ROI before full-scale implementation.\n\nWould you like to proceed with generating the export file or discuss the pilot project further?"
+      },
+      {
+        "type": "numeric",
+        "question": "What is the average resolution time for Service Desk tickets, in hours?",
+        "correct": false,
+        "answer": "The average resolution time for Service Desk tickets, as provided in the dataset, is **21.99 hours** (MTTR - Mean Time to Resolution).\n\n### Detailed Analysis:\n- **Manual Process**: The highest MTTR at **59.36 hours** indicates significant inefficiencies.\n- **Self-Service Portal**: The lowest MTTR at **6.68 hours** shows the effectiveness of self-service options.\n- **Existing Automation**: The lowest MTTR at **0.33 hours** highlights the efficiency gains from existing automation.\n- **Automation Tuning**: The MTTR of **0.86 hours** suggests that fine-tuning automation can further reduce resolution times.\n- **Auto-Remediation**: The MTTR of **5.76 hours** indicates a good balance between automation and manual intervention.\n- **RPA**: The MTTR of **23.69 hours** is higher than the average, suggesting potential areas for improvement.\n- **Self-Healing**: The lowest MTTR at **0.67 hours** indicates highly effective self-healing mechanisms.\n\n### Insights and Recommendations:\n1. **Focus on Manual Processes**: The high MTTR of 59.36 hours in the manual process segment suggests significant opportunities for improvement. Consider implementing more robust self-service portals or automation tools to reduce this time.\n2. **Evaluate RPA**: The higher MTTR of 23.69 hours for RPA compared to other automation methods indicates a need to review and optimize RPA workflows.\n3. **Continuous Improvement**: Regularly review and tune existing automation and RPA processes to ensure they remain efficient.\n\n### Next Steps:\n- Generate a detailed report on the manual process tickets to identify common issues and potential automation opportunities.\n- Conduct a deeper analysis of the RPA processes to understand the root causes of the higher MTTR.\n\nBy focusing on these areas, you can significantly reduce the average resolution time and improve overall operational efficiency."
+      },
+      {
+        "type": "numeric",
+        "question": "What is the average resolution time for Desktop Support, in hours?",
+        "correct": false,
+        "answer": "Based on the provided dataset, the average resolution time (MTTR) for all tickets is **21.99 hours**. However, to specifically address the Desktop Support team's performance, we need to filter the tickets assigned to this team. Unfortunately, the dataset does not provide a breakdown of tickets by specific teams. \n\nTo get the average resolution time for Desktop Support, we would need to:\n- Filter the 1,500 tickets to identify those assigned to the Desktop Support team.\n- Calculate the MTTR for these filtered tickets.\n\nSince this information is not available, we can still analyze the overall efficiency of the Desktop Support team by looking at the solution lever breakdown. The Desktop Support team's tickets are primarily categorized under **Manual Process** (30.7%) and **Script/Runbook** (12.2%).\n\n**Key Insights:**\n- **Manual Process:** 30.7% of tickets are handled manually, with an average MTTR of 59.36 hours.\n- **Script/Runbook:** 12.2% of tickets are resolved using scripts/runbooks, with an average MTTR of 5.29 hours.\n\n**Action Suggestion:**\nTo reduce the average resolution time for Desktop Support, consider implementing or enhancing the Script/Runbook solution lever. This could significantly decrease the MTTR from 59.36 hours to 5.29 hours, leading to substantial time savings.\n\n**Follow-Up Action:**\nGenerate a detailed report on Desktop Support tickets and their current solution lever usage. This will help in identifying specific areas where automation can be applied more effectively. Additionally, consider exporting the relevant data for a deeper analysis.\n\nWould you like to proceed with exporting the Desktop Support ticket data for further analysis?"
+      },
+      {
+        "type": "numeric",
+        "question": "How many tickets did the Oracle DBA team handle?",
+        "correct": true,
+        "answer": "The Oracle DBA team handled 132 tickets based on the provided dataset.\n\n### Key Insights:\n- **MTTR**: The Mean Time To Resolution for the Oracle DBA team is 18.73 hours, which is relatively shorter compared to some other teams.\n- **Reassignment and Reopen Rates**: Both reassignment and reopen rates are 0%, indicating that tickets are being resolved without needing to be reassigned or reopened.\n- **Automation Score**: The automation score of 55.10 suggests that there is a moderate level of automation potential for this team.\n\n### Follow-Up Action:\nGiven the moderate automation score, it would be beneficial to conduct a deeper analysis to identify specific ticket types that could benefit from automation. This could involve exporting detailed ticket data for the Oracle DBA team and applying advanced analytics to pinpoint patterns and opportunities for automation.\n\n### Next Steps:\n- **Generate Export File**: Export the ticket data for the Oracle DBA team for further detailed analysis.\n- **Advanced Analytics**: Use the exported data to identify common issues and automate repetitive tasks.\n- **Cost Savings**: Estimate potential cost savings by automating these tasks. For example, if the team handles 132 tickets and each ticket takes 18.73 hours to resolve, the total time spent is 2,498.76 hours. At a cost of \u20b9850 per ticket hour, this translates to a potential savings of \u20b92,129,022.\n\nBy focusing on these areas, you can optimize the Oracle DBA team's efficiency and reduce overall operational costs."
+      },
+      {
+        "type": "out_of_scope",
+        "question": "What is the capital of France?",
+        "correct": true,
+        "answer": "It appears that your question is not related to the provided data context, which focuses on analyzing ServiceNow ticket data. However, I can provide you with the answer to your question: The capital of France is Paris.\n\nTo continue with the analysis of the provided ticket data, let's summarize the key insights:\n\n- **High Automation Potential**: 43.5% of tickets can be automated, with a high average automation score of 98.06.\n- **Low MTTR for Automated Tickets**: The average MTTR for tickets that can be automated is 8.38 hours, compared to 59.36 hours for manual-only tickets.\n- **Top Performing Teams**: Service Desk and Wintel L1 teams have the highest automation scores, indicating efficient and effective ticket handling.\n- **Manual Processes**: Teams like App Support L3 and Network L2 have significantly lower automation scores, suggesting areas for improvement.\n\n**Follow-up Action**: \n- Conduct a deeper analysis on the manual processes in App Support L3 and Network L2 to identify specific issues and develop automation strategies.\n- Explore the use of RPA and multi-task classification for clusters with high MTTR, such as Cluster 27 and Cluster 12.\n\nWould you like to export this analysis or dive deeper into any specific cluster?"
+      },
+      {
+        "type": "out_of_scope",
+        "question": "Who is the CEO of Northwind Retail?",
+        "correct": true,
+        "answer": "The question asked is not related to the provided ServiceNow ticket data analysis. The data focuses on IT service ticket processing, automation, and team performance metrics. There is no information available about the CEO of Northwind Retail.\n\nHowever, if you need insights on the automation potential and cost savings from the provided data, here are some key findings:\n\n- **Automation Potential**: 43.5% of tickets can be automated, with a high auto-score of 98.06. This suggests significant automation opportunities.\n- **Cost Savings**: Assuming an average ticket duration of 10 hours, the total cost for manual tickets is approximately \u20b9850 * 59.36 * 460 = \u20b92.07 Crores. If 652 tickets were automated, the potential savings would be \u20b9850 * 8.38 * 652 = \u20b94.54 Crores.\n- **MTTR Variations**: The median MTTR is 21.99 hours, with significant variations. For instance, Cluster 27 has an MTTR of 97.66 hours, which is an outlier.\n- **Team Performance**: The Service Desk and Wintel L1 teams have the highest auto-scores, indicating efficient operations. Conversely, App Support L3 and Network L2 have low auto-scores, suggesting areas for improvement.\n\n**Follow-Up Action**: \n- Conduct a deeper analysis on the high MTTR clusters like Cluster 27 to identify root causes and implement corrective measures.\n- Focus on automating the 652 tickets with high auto-scores to significantly reduce MTTR and operational costs.\n\nWould you like to export this analysis or dive deeper into specific clusters?"
+      },
+      {
+        "type": "out_of_scope",
+        "question": "What will the weather be in Pune tomorrow?",
+        "correct": true,
+        "answer": "The question about the weather in Pune tomorrow is outside the scope of the provided ServiceNow ticket data analysis. The dataset focuses on IT service ticket processing and automation insights, and does not contain any information related to weather forecasts.\n\nIf you have any questions or need analysis related to the provided ticket data, such as identifying automation opportunities, reducing Mean Time to Resolution (MTTR), or understanding team performance, please let me know. I can provide detailed insights and actionable recommendations based on the data available.\n\nFor weather information in Pune, you may want to refer to a reliable weather forecasting service or website."
+      },
+      {
+        "type": "out_of_scope",
+        "question": "What was the root cause of the SAP outage on 1 January 2030?",
+        "correct": true,
+        "answer": "The provided dataset does not contain any information about an SAP outage on 1 January 2030. The dataset covers a period from 2025-04-01 to 2025-09-29, and there are no specific entries related to an SAP outage within this timeframe.\n\nHowever, based on the analysis of the existing data, we can infer that the majority of tickets are related to password resets, service stops, disk space alerts, and other common IT issues. The clusters with the highest volume and automation scores (Clusters 1, 2, and 4) are related to password resets, service stops, and disk space alerts, which are typically routine and can be automated.\n\nFor a more detailed analysis of potential issues, we would need to:\n\n1. **Generate a new export file** with the latest ticket data, including any new outages or critical issues.\n2. **Analyze the new data** to identify patterns and root causes.\n3. **Perform a deep dive** on the specific cluster or ticket that might correspond to the SAP outage, if it exists in the new data.\n\nWould you like to proceed with generating a new export file and performing a deeper analysis?"
+      },
+      {
+        "type": "out_of_scope",
+        "question": "How much did the company spend on cloud hosting last year?",
+        "correct": true,
+        "answer": "The provided data does not contain any information related to cloud hosting expenses or costs. The dataset focuses on ServiceNow ticket data, including clusters, teams, MTTR, automation scores, and other operational metrics. Therefore, I cannot determine the company's cloud hosting expenditure based on this data.\n\nHowever, if you have additional financial data or cloud service usage logs that could be correlated with the ticket data, I can help analyze those to provide insights into potential cost savings or areas for optimization.\n\nWould you like to proceed with a deeper analysis of the ticket data to identify automation opportunities and potential cost savings? This could include further breakdowns of high-cost clusters and teams, as well as suggestions for automating repetitive tasks."
+      }
+    ]
+  },
+  "results": [
+    {
+      "type": "numeric",
+      "question": "How many tickets are in this dataset?",
+      "expected": 1500,
+      "correct": true,
+      "answer": "1500 [No supporting points needed as the answer is directly provided in the DATA.]",
+      "plan": {
+        "aggregate": {
+          "metric": "count",
+          "group_by": null,
+          "filters": {},
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "How many P1 tickets are there?",
+      "expected": 29,
+      "correct": true,
+      "answer": "There are 29 tickets where the priority matches 'P1'.",
+      "plan": {
+        "aggregate": {
+          "metric": "count",
+          "group_by": null,
+          "filters": {
+            "priority": "P1"
+          },
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "How many P2 tickets are there?",
+      "expected": 152,
+      "correct": true,
+      "answer": "There are 152 tickets where the priority matches 'P2'.",
+      "plan": {
+        "aggregate": {
+          "metric": "count",
+          "group_by": null,
+          "filters": {
+            "priority": "P2"
+          },
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "Which team handled the most tickets?",
+      "expected": "Service Desk",
+      "correct": true,
+      "answer": "The Service Desk team handled the most tickets, with 287 tickets. [Based on the data provided, this is the only team mentioned and has the highest number of tickets.]",
+      "plan": {
+        "aggregate": {
+          "metric": "count",
+          "group_by": "team",
+          "filters": {},
+          "top": 1,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "Which team has the longest average resolution time?",
+      "expected": "App Support L3",
+      "correct": true,
+      "answer": "The team with the longest average resolution time is App Support L3, with an average resolution time of 88.3531 hours.\n\nSupporting points:\n1. The data provided indicates that App Support L3 has the highest average resolution time among the teams in the dataset.\n2. There are 110 tickets associated with App Support L3, which is the only team mentioned in the provided data.\n3. No other teams are mentioned in the DATA, so we can only draw conclusions based on the information given.\n4. The average resolution time of 88.3531 hours is significantly higher than what would be expected for other teams, if they existed in the dataset.",
+      "plan": {
+        "aggregate": {
+          "metric": "avg_resolution_hours",
+          "group_by": "team",
+          "filters": {},
+          "top": 1,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "What is the average resolution time across all tickets, in hours?",
+      "expected": 21.99,
+      "correct": true,
+      "answer": "The average resolution time across all tickets is 21.99 hours. [This figure is directly taken from the provided DATA.]",
+      "plan": {
+        "aggregate": {
+          "metric": "avg_resolution_hours",
+          "group_by": null,
+          "filters": {},
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "What share of P1 tickets breached their 4 hour SLA?",
+      "expected": 65.5,
+      "correct": true,
+      "answer": "The share of P1 tickets that breached their 4 hour SLA is 0.6552, which is significantly higher than the overall share of tickets that breached their SLA (0.1787).",
+      "plan": {
+        "aggregate": {
+          "metric": "sla_breach_rate",
+          "group_by": null,
+          "filters": {
+            "priority": "P1"
+          },
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "Which channel has the most tickets?",
+      "expected": "Event Management",
+      "correct": true,
+      "answer": "Event Management has the most tickets.\n\nSupporting points:\n1. The Event Management channel has 465 tickets, which is the highest number among the channels listed.\n2. No other channel is mentioned in the provided DATA, so we can only conclude based on the Event Management channel.",
+      "plan": {
+        "aggregate": {
+          "metric": "count",
+          "group_by": "channel",
+          "filters": {},
+          "top": 1,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "How many tickets came in through the Self-service channel?",
+      "expected": 131,
+      "correct": true,
+      "answer": "131 tickets came in through the Self-service channel. [Based on the provided DATA, there are 131 tickets where the channel matches 'Self-service'.]",
+      "plan": {
+        "aggregate": {
+          "metric": "count",
+          "group_by": "channel",
+          "filters": {
+            "channel": "Self-service"
+          },
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "What is the average resolution time for Service Desk tickets, in hours?",
+      "expected": 2.74,
+      "correct": true,
+      "answer": "The average resolution time for Service Desk tickets is 2.74 hours. [This figure is directly cited from the provided DATA.]",
+      "plan": {
+        "aggregate": {
+          "metric": "avg_resolution_hours",
+          "group_by": null,
+          "filters": {
+            "team": "Service Desk"
+          },
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "What is the average resolution time for Desktop Support, in hours?",
+      "expected": 40.55,
+      "correct": true,
+      "answer": "The average resolution time for Desktop Support tickets is 40.5525 hours.\n\nSupporting points:\n1. This figure is specific to the Desktop Support team.\n2. It is significantly higher than the overall average resolution time of 21.9907 hours.\n3. The dataset includes 178 tickets for the Desktop Support team.\n4. This longer resolution time might indicate more complex issues or higher priority tickets handled by this team.",
+      "plan": {
+        "aggregate": {
+          "metric": "avg_resolution_hours",
+          "group_by": "team",
+          "filters": {
+            "team": "Desktop Support"
+          },
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "How many tickets did the Oracle DBA team handle?",
+      "expected": 132,
+      "correct": true,
+      "answer": "The Oracle DBA team handled 132 tickets according to the dataset. [Based on the provided DATA, the number of tickets where the team matches 'Oracle DBA' is 132.]",
+      "plan": {
+        "aggregate": {
+          "metric": "count",
+          "group_by": "team",
+          "filters": {
+            "team": "Oracle DBA"
+          },
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "out_of_scope",
+      "question": "What is the capital of France?",
+      "correct": true,
+      "answer": "That question doesn't seem to be about this ticket dataset, so there is nothing to look up.",
+      "plan": {
+        "aggregate": null,
+        "search_query": null,
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": []
+      }
+    },
+    {
+      "type": "out_of_scope",
+      "question": "Who is the CEO of Northwind Retail?",
+      "correct": true,
+      "answer": "That question doesn't seem to be about this ticket dataset, so there is nothing to look up.",
+      "plan": {
+        "aggregate": null,
+        "search_query": null,
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": []
+      }
+    },
+    {
+      "type": "out_of_scope",
+      "question": "What will the weather be in Pune tomorrow?",
+      "correct": true,
+      "answer": "That question doesn't seem to be about this ticket dataset, so there is nothing to look up.",
+      "plan": {
+        "aggregate": null,
+        "search_query": null,
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": []
+      }
+    },
+    {
+      "type": "out_of_scope",
+      "question": "What was the root cause of the SAP outage on 1 January 2030?",
+      "correct": true,
+      "answer": "The dataset does not show the root cause of the SAP outage on 1 January 2030. The tickets provided do not mention any specific date and the root cause is consistently stated as \"Data correction script executed after root cause analysis\" in all tickets related to SAP issues.",
+      "plan": {
+        "aggregate": null,
+        "search_query": "SAP outage 1 January 2030 root cause",
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "out_of_scope",
+      "question": "How much did the company spend on cloud hosting last year?",
+      "correct": true,
+      "answer": "That question doesn't seem to be about this ticket dataset, so there is nothing to look up.",
+      "plan": {
+        "aggregate": null,
+        "search_query": null,
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": []
+      }
+    },
+    {
+      "type": "explanatory",
+      "question": "What do we do when a server is running out of disk?",
+      "answer": "When a server is running out of disk space, the auto-remediation script is triggered to clear temporary files, bringing the disk usage back to a more manageable level. This is evident from the closure notes in the tickets, which mention that the script cleared temp files in several cases.\n\nSupporting points:\n1. The auto-remediation script is consistently used across multiple tickets to address low disk space issues.\n2. The script has been effective in reducing disk usage to a lower percentage in most cases.\n3. The tickets show that this process is automated and does not require manual intervention, as indicated by the \"automation status\" field.\n4. The resolution times are generally short, with most tickets resolved within a few minutes to an hour, indicating the efficiency of the automated process.",
+      "plan": {
+        "aggregate": null,
+        "search_query": "server running out of disk resolution",
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "explanatory",
+      "question": "How are Windows services that stopped running brought back?",
+      "answer": "Windows services that stopped running are brought back through several methods as shown in the tickets:\n\n1. **Automatic Restart by Monitoring Runbook**: This is the most common method, seen in 5 out of 8 tickets. The monitoring runbook automatically restarts the service when it detects that it has stopped running. For example, in ticket [<INC2000067>], the MSSQLSERVER service was restarted automatically by the monitoring runbook.\n\n2. **Manual Restart via Services.msc**: In one ticket, the service was manually restarted using the Services management console (services.msc). This is seen in ticket [<INC2000224>] where the SplunkForwarder service was started from services.msc.\n\n3. **Auto-Heal**: In two tickets, the service was restarted by the auto-heal feature. For instance, in ticket [<INC2001240>], the MSSQLSERVER service was restarted by the auto-heal feature.\n\nThe majority of the services (7 out of 8) were automatically brought back, indicating a robust automation strategy in place.",
+      "plan": {
+        "aggregate": null,
+        "search_query": "Windows services stopped running resolution",
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "explanatory",
+      "question": "How is high processor usage on servers handled?",
+      "answer": "High processor usage on servers is handled primarily through automated processes and manual interventions as needed.\n\n1. **Automation**: Most tickets show that high CPU alerts are automatically closed when CPU usage returns to normal levels. This is evident in tickets [INC2000137], [INC2000293], [INC2000320], [INC2000322], [INC2000388], and [INC2000553], where the closure notes indicate that the alerts were auto-closed.\n\n2. **Manual Intervention**: In some cases, manual intervention is required. For example, ticket [INC2000104] describes a capacity issue that required VM resizing after change approval, indicating a more complex manual resolution process.\n\n3. **Resolution Time**: The resolution times vary, with most automated resolutions taking less than an hour. For instance, [INC2000137] took 0.22 hours, while [INC2000104] took 17.38 hours, highlighting the difference between automated and manual processes.\n\n4. **Team Involvement**: The tickets are handled by various teams, with the Linux L1 team being the most involved, as seen in tickets [INC2000104], [INC2000137], [INC2000293], [INC2000320], [INC2000322], [INC2000388], and [INC2000553]. The Service Desk team also intervened in [INC2000113].\n\n5. **Priority Levels**: The priority levels of these tickets range from moderate to low, indicating that while high CPU usage is a concern, it is not always considered an urgent issue.",
+      "plan": {
+        "aggregate": null,
+        "search_query": "high processor usage server resolution",
+        "error": null
+      },
+      "verification": {
+        "cited": [
+          "INC2000137",
+          "INC2000293",
+          "INC2000320",
+          "INC2000322",
+          "INC2000388",
+          "INC2000553",
+          "INC2000104",
+          "INC2000113"
+        ],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "explanatory",
+      "question": "How are Oracle tablespace usage alerts handled?",
+      "answer": "Oracle tablespace usage alerts are handled by automatically extending the datafiles when they reach a certain threshold. This is done through automation, as evidenced by the \"automation status: Already Automated\" notes in the tickets.\n\nSupporting points:\n1. The tickets show that the automation process adds 2GB datafiles to the UNDOTBS1 tablespace when it is nearly full.\n2. The automation is triggered by alerts indicating that tablespaces are nearly full, such as \"ora alert: tablespace users nearly full\" or \"ORA alert: tablespace undotbs1 nearly full\".\n3. The resolution times for these tickets are generally short, ranging from 0.24 to 1.36 hours, indicating that the automation process is efficient.\n4. The tickets are resolved by automation or monitoring integration, showing that the system is designed to handle these issues without human intervention.",
+      "plan": {
+        "aggregate": null,
+        "search_query": "Oracle tablespace usage alert resolution",
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "explanatory",
+      "question": "How do users get their password reset?",
+      "answer": "Users typically get their password reset through the service desk. The tickets show that the resolution involves unlocking the account and resetting the password, which is then shared with the user. This process is documented in the closure notes of multiple tickets, such as [<INC2001151>] and [<INC2000773>].\n\nSupport is provided by team members from the Service Desk and App Support L3, with the Service Desk being the most frequent provider. For example, tickets [<INC2000447>] and [<INC2000593>] were resolved by the Service Desk.\n\nThe resolution time varies, ranging from 0.27 hours to 1.2 hours, indicating that the process can be quick or more complex depending on the specific circumstances. Automation is possible for this process, as noted in the automation status field of all tickets.",
+      "plan": {
+        "aggregate": null,
+        "search_query": "password reset resolution",
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    },
+    {
+      "type": "explanatory",
+      "question": "How are locked domain accounts handled?",
+      "answer": "Locked domain accounts are handled by unlocking the affected account. This is typically done through the Active Directory User and Computer (ADUC) tool. The tickets show that the resolution involves manually unlocking the account in ADUC or, in one case, an automated self-service bot unlocking the account.\n\nSupporting points:\n1. All tickets describe the issue as a domain account being locked out after a password change.\n2. The resolution notes in most tickets indicate that the account was unlocked in ADUC.\n3. One ticket mentions an automated self-service bot unlocking the account, suggesting some level of automation.\n4. The resolution times vary, with most tickets resolved within a few minutes to an hour, indicating a relatively quick process.",
+      "plan": {
+        "aggregate": null,
+        "search_query": "locked domain account resolution",
+        "error": null
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": []
+      }
+    }
+  ]
+}

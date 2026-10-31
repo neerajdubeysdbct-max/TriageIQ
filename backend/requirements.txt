@@ -1,0 +1,40 @@
+# Runtime dependencies (Python 3.12). Versions are the ones the test suite and model card were produced with.
+# torch: in Docker the CPU-only wheel is installed first (see Dockerfile) to keep the image small.
+
+# API
+fastapi==0.129.0
+uvicorn==0.41.0
+python-multipart==0.0.22
+pydantic==2.12.5
+httpx==0.28.1
+requests==2.32.5
+
+# Database
+SQLAlchemy==2.0.46
+psycopg2-binary==2.9.11
+
+# Auth
+python-jose==3.5.0
+bcrypt==5.0.0
+cryptography==46.0.5
+
+# Data and ML
+numpy==2.4.2
+pandas==3.0.1
+scipy==1.17.0
+scikit-learn==1.8.0
+xgboost==3.2.0
+shap==0.50.0
+joblib==1.5.3
+torch==2.10.0
+transformers==5.2.0
+sentence-transformers==5.2.3
+
+# MLOps
+mlflow==3.17.1
+
+# Reports and exports
+openpyxl==3.1.5
+python-pptx==1.0.2
+matplotlib==3.10.8
+seaborn==0.13.2

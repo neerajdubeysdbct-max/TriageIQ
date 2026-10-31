@@ -1,0 +1,18 @@
+# Keep secrets, client data and local artefacts out of images
+**/.env
+**/*.env
+**/.secret_key
+**/venv
+**/__pycache__
+**/node_modules
+**/.next
+**/backup_before_v2
+backend/uploads
+backend/outputs
+backend/models
+backend/reports
+backend/mlruns
+backend/mlflow.db
+backend/experiments/*.json
+docs
+.git

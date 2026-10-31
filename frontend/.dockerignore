@@ -1,0 +1,5 @@
+node_modules
+.next
+backup_before_v2
+.env*
+tsconfig.tsbuildinfo

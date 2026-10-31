@@ -1,0 +1,50 @@
+# --- Secrets: never commit ---
+.env
+*.env
+.secret_key
+backend/.secret_key
+
+# --- Client data and generated artefacts ---
+# Uploaded ticket dumps can contain confidential client data
+backend/uploads/
+backend/outputs/
+backend/models/*.pkl
+backend/models/*.joblib
+backend/models/*.json
+backend/experiments/*.json
+backend/reports/upload_*
+backend/training_data*/
+
+# Old copies of the code
+backup_before_v2/
+backend/backup_before_v2/
+frontend/backup_before_v2/
+
+# --- Python ---
+backend/venv/
+__pycache__/
+*.pyc
+
+# --- Node ---
+node_modules/
+frontend/.next/
+
+# --- Editor / OS ---
+.DS_Store
+Thumbs.db
+
+# Experiment tracking (local)
+backend/mlflow.db
+backend/mlruns/
+backend/models/versions/
+
+# Stray packages installed at the repository root by mistake (the app lives in frontend/)
+/package.json
+/package-lock.json
+/node_modules/
+
+# Personal editor setup
+*.code-workspace
+
+# Root-level virtualenv
+/venv/

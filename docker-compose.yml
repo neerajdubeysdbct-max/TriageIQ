@@ -1,0 +1,74 @@
+# TriageIQ: Postgres (with pgvector) + API + dashboard.
+#
+#   cp .env.example .env      # set the passwords
+#   docker compose up --build
+#
+# The LLM runs in Ollama on the host (GPU access is simpler there):
+#   ollama pull qwen2.5:7b
+# Dashboard: http://localhost:3000   API docs: http://localhost:8000/docs
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: triageiq
+      POSTGRES_USER: triageiq
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:5433:5432"          # local tools only; not exposed to the network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U triageiq -d triageiq"]
+      interval: 5s
+      retries: 20
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      args:
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.org/simple}
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://triageiq:${POSTGRES_PASSWORD}@db:5432/triageiq
+      TRIAGEIQ_SECRET_KEY: ${TRIAGEIQ_SECRET_KEY:?set TRIAGEIQ_SECRET_KEY in .env}
+      OLLAMA_URL: ${OLLAMA_URL:-http://host.docker.internal:11434}
+      LLM_MODEL: ${LLM_MODEL:-qwen2.5:7b}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000}
+      VECTOR_STORE: ${VECTOR_STORE:-pgvector}
+      MLFLOW_TRACKING_URI: sqlite:////app/backend/mlruns/mlflow.db
+      MLFLOW_ARTIFACT_ROOT: /app/backend/mlruns
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      ADMIN_TEAM: ${ADMIN_TEAM:-}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - models:/app/backend/models
+      - outputs:/app/backend/outputs
+      - uploads:/app/backend/uploads
+      - mlflow:/app/backend/mlruns
+      - hf-cache:/app/cache
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: frontend
+      args:
+        NEXT_PUBLIC_API_URL: ${PUBLIC_API_URL:-http://localhost:8000}
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+
+volumes:
+  pgdata:
+  models:
+  outputs:
+  uploads:
+  mlflow:
+  hf-cache:

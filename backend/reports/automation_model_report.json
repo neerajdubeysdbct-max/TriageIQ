@@ -1,0 +1,612 @@
+{
+  "generated_at": "2026-10-19T09:07:43",
+  "data": {
+    "tickets": "northwind_incidents.csv",
+    "labels": "northwind_ground_truth.csv",
+    "n": 3000,
+    "class_counts": {
+      "Can Be Automated": 1390,
+      "Manual Only": 858,
+      "Already Automated": 752
+    },
+    "split": {
+      "train": 1800,
+      "val": 600,
+      "test": 600
+    }
+  },
+  "test_results": [
+    {
+      "model": "Majority class",
+      "accuracy": 0.4633,
+      "macro_f1": 0.2111,
+      "per_class": {
+        "Already Automated": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 150.0
+        },
+        "Can Be Automated": {
+          "precision": 0.4633,
+          "recall": 1.0,
+          "f1-score": 0.6333,
+          "support": 278.0
+        },
+        "Manual Only": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 172.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          0,
+          150,
+          0
+        ],
+        [
+          0,
+          278,
+          0
+        ],
+        [
+          0,
+          172,
+          0
+        ]
+      ]
+    },
+    {
+      "model": "Rule: \"resolved by bot\"",
+      "accuracy": 0.7017,
+      "macro_f1": 0.575,
+      "per_class": {
+        "Already Automated": {
+          "precision": 0.9667,
+          "recall": 0.9667,
+          "f1-score": 0.9667,
+          "support": 150.0
+        },
+        "Can Be Automated": {
+          "precision": 0.6133,
+          "recall": 0.9928,
+          "f1-score": 0.7582,
+          "support": 278.0
+        },
+        "Manual Only": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 172.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          145,
+          5,
+          0
+        ],
+        [
+          2,
+          276,
+          0
+        ],
+        [
+          3,
+          169,
+          0
+        ]
+      ]
+    },
+    {
+      "model": "Logistic regression",
+      "accuracy": 0.95,
+      "macro_f1": 0.9494,
+      "per_class": {
+        "Already Automated": {
+          "precision": 0.96,
+          "recall": 0.96,
+          "f1-score": 0.96,
+          "support": 150.0
+        },
+        "Can Be Automated": {
+          "precision": 0.9567,
+          "recall": 0.9532,
+          "f1-score": 0.955,
+          "support": 278.0
+        },
+        "Manual Only": {
+          "precision": 0.9306,
+          "recall": 0.936,
+          "f1-score": 0.9333,
+          "support": 172.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          144,
+          4,
+          2
+        ],
+        [
+          3,
+          265,
+          10
+        ],
+        [
+          3,
+          8,
+          161
+        ]
+      ]
+    },
+    {
+      "model": "XGBoost (calibrated)",
+      "accuracy": 0.95,
+      "macro_f1": 0.9497,
+      "per_class": {
+        "Already Automated": {
+          "precision": 0.9667,
+          "recall": 0.9667,
+          "f1-score": 0.9667,
+          "support": 150.0
+        },
+        "Can Be Automated": {
+          "precision": 0.9406,
+          "recall": 0.9676,
+          "f1-score": 0.9539,
+          "support": 278.0
+        },
+        "Manual Only": {
+          "precision": 0.9512,
+          "recall": 0.907,
+          "f1-score": 0.9286,
+          "support": 172.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          145,
+          4,
+          1
+        ],
+        [
+          2,
+          269,
+          7
+        ],
+        [
+          3,
+          13,
+          156
+        ]
+      ]
+    }
+  ],
+  "calibration": {
+    "ece_before": 0.0278,
+    "ece_after": 0.012,
+    "brier_before": 0.0873,
+    "brier_after": 0.088,
+    "brier_automatable_binary": 0.0342
+  },
+  "score_tiers": [
+    {
+      "tier": "High",
+      "tickets": 436,
+      "share_of_tickets": 0.7267,
+      "actually_automatable": 0.9633
+    },
+    {
+      "tier": "Medium",
+      "tickets": 0,
+      "share_of_tickets": 0.0,
+      "actually_automatable": null
+    },
+    {
+      "tier": "Low",
+      "tickets": 0,
+      "share_of_tickets": 0.0,
+      "actually_automatable": null
+    },
+    {
+      "tier": "Not feasible",
+      "tickets": 164,
+      "share_of_tickets": 0.2733,
+      "actually_automatable": 0.0488
+    }
+  ],
+  "cross_validation": {
+    "Logistic regression": {
+      "macro_f1_mean": 0.9584,
+      "macro_f1_std": 0.0084
+    },
+    "XGBoost": {
+      "macro_f1_mean": 0.9621,
+      "macro_f1_std": 0.0117
+    }
+  },
+  "xgboost_trees": 298,
+  "feature_importance_shap": {
+    "overall": [
+      {
+        "feature": "resolver_is_bot",
+        "importance": 0.4742
+      },
+      {
+        "feature": "text: \"installed\"",
+        "importance": 0.2818
+      },
+      {
+        "feature": "text: \"check\"",
+        "importance": 0.2355
+      },
+      {
+        "feature": "log_mttr_hours",
+        "importance": 0.1994
+      },
+      {
+        "feature": "text: \"mailbox\"",
+        "importance": 0.1838
+      },
+      {
+        "feature": "text: \"services\"",
+        "importance": 0.1738
+      },
+      {
+        "feature": "assignment_group = Oracle DBA",
+        "importance": 0.1331
+      },
+      {
+        "feature": "text: \"replaced\"",
+        "importance": 0.1324
+      },
+      {
+        "feature": "category = Database",
+        "importance": 0.1242
+      },
+      {
+        "feature": "assignment_group = Wintel L2",
+        "importance": 0.1131
+      },
+      {
+        "feature": "text: \"sccm\"",
+        "importance": 0.1113
+      },
+      {
+        "feature": "category = Security",
+        "importance": 0.1083
+      },
+      {
+        "feature": "assignment_group = IAM Team",
+        "importance": 0.1026
+      },
+      {
+        "feature": "text: \"remotely\"",
+        "importance": 0.0942
+      },
+      {
+        "feature": "text: \"engineer\"",
+        "importance": 0.0917
+      },
+      {
+        "feature": "closure_note_length",
+        "importance": 0.0883
+      },
+      {
+        "feature": "assignment_group = App Support L2",
+        "importance": 0.083
+      },
+      {
+        "feature": "text: \"user\"",
+        "importance": 0.0818
+      },
+      {
+        "feature": "category = Unknown",
+        "importance": 0.0776
+      },
+      {
+        "feature": "text: \"account\"",
+        "importance": 0.0761
+      }
+    ],
+    "Already Automated": [
+      {
+        "feature": "resolver_is_bot",
+        "importance": 0.9039
+      },
+      {
+        "feature": "text: \"installed\"",
+        "importance": 0.5723
+      },
+      {
+        "feature": "text: \"mailbox\"",
+        "importance": 0.4013
+      },
+      {
+        "feature": "log_mttr_hours",
+        "importance": 0.2427
+      },
+      {
+        "feature": "priority_level = P4",
+        "importance": 0.1738
+      },
+      {
+        "feature": "text: \"user\"",
+        "importance": 0.1632
+      },
+      {
+        "feature": "text: \"job\"",
+        "importance": 0.141
+      },
+      {
+        "feature": "text: \"alert\"",
+        "importance": 0.1197
+      },
+      {
+        "feature": "open_hour",
+        "importance": 0.1107
+      },
+      {
+        "feature": "text: \"error\"",
+        "importance": 0.109
+      },
+      {
+        "feature": "text: \"confirmed\"",
+        "importance": 0.1002
+      },
+      {
+        "feature": "text: \"bot\"",
+        "importance": 0.0888
+      },
+      {
+        "feature": "closure_note_length",
+        "importance": 0.0871
+      },
+      {
+        "feature": "text: \"archive\"",
+        "importance": 0.0832
+      },
+      {
+        "feature": "text: \"closing\"",
+        "importance": 0.0749
+      },
+      {
+        "feature": "contact_type = Phone",
+        "importance": 0.071
+      },
+      {
+        "feature": "text: \"login\"",
+        "importance": 0.0652
+      },
+      {
+        "feature": "assignment_group = App Support L2",
+        "importance": 0.0646
+      },
+      {
+        "feature": "text: \"kabir\"",
+        "importance": 0.0616
+      },
+      {
+        "feature": "text: \"user confirmed\"",
+        "importance": 0.0615
+      }
+    ],
+    "Can Be Automated": [
+      {
+        "feature": "text: \"services\"",
+        "importance": 0.4215
+      },
+      {
+        "feature": "resolver_is_bot",
+        "importance": 0.4019
+      },
+      {
+        "feature": "assignment_group = Oracle DBA",
+        "importance": 0.2641
+      },
+      {
+        "feature": "text: \"remotely\"",
+        "importance": 0.2288
+      },
+      {
+        "feature": "text: \"check\"",
+        "importance": 0.2278
+      },
+      {
+        "feature": "assignment_group = Wintel L2",
+        "importance": 0.2227
+      },
+      {
+        "feature": "category = Security",
+        "importance": 0.2116
+      },
+      {
+        "feature": "category = Unknown",
+        "importance": 0.2086
+      },
+      {
+        "feature": "text: \"engineer\"",
+        "importance": 0.2073
+      },
+      {
+        "feature": "text: \"replaced\"",
+        "importance": 0.161
+      },
+      {
+        "feature": "text: \"account\"",
+        "importance": 0.1521
+      },
+      {
+        "feature": "text: \"resolved\"",
+        "importance": 0.1397
+      },
+      {
+        "feature": "category = Database",
+        "importance": 0.1364
+      },
+      {
+        "feature": "assignment_group = App Support L2",
+        "importance": 0.1361
+      },
+      {
+        "feature": "text: \"failed\"",
+        "importance": 0.1285
+      },
+      {
+        "feature": "log_mttr_hours",
+        "importance": 0.1199
+      },
+      {
+        "feature": "assignment_group = Network L2",
+        "importance": 0.1089
+      },
+      {
+        "feature": "assignment_group = IAM Team",
+        "importance": 0.1079
+      },
+      {
+        "feature": "text: \"disk\"",
+        "importance": 0.1049
+      },
+      {
+        "feature": "contact_type = Self-service",
+        "importance": 0.1022
+      }
+    ],
+    "Manual Only": [
+      {
+        "feature": "text: \"check\"",
+        "importance": 0.4786
+      },
+      {
+        "feature": "text: \"sccm\"",
+        "importance": 0.2505
+      },
+      {
+        "feature": "text: \"installed\"",
+        "importance": 0.2423
+      },
+      {
+        "feature": "category = Database",
+        "importance": 0.2362
+      },
+      {
+        "feature": "text: \"replaced\"",
+        "importance": 0.2361
+      },
+      {
+        "feature": "log_mttr_hours",
+        "importance": 0.2357
+      },
+      {
+        "feature": "assignment_group = IAM Team",
+        "importance": 0.1999
+      },
+      {
+        "feature": "assignment_group = App Support L3",
+        "importance": 0.1757
+      },
+      {
+        "feature": "priority_level = P2",
+        "importance": 0.1515
+      },
+      {
+        "feature": "text: \"mailbox\"",
+        "importance": 0.1413
+      },
+      {
+        "feature": "assignment_group = Oracle DBA",
+        "importance": 0.1351
+      },
+      {
+        "feature": "category = Software",
+        "importance": 0.1191
+      },
+      {
+        "feature": "closure_note_length",
+        "importance": 0.1175
+      },
+      {
+        "feature": "resolver_is_bot",
+        "importance": 0.1168
+      },
+      {
+        "feature": "assignment_group = Wintel L2",
+        "importance": 0.1166
+      },
+      {
+        "feature": "assignment_group = Network L2",
+        "importance": 0.1147
+      },
+      {
+        "feature": "text: \"review\"",
+        "importance": 0.1138
+      },
+      {
+        "feature": "category = Security",
+        "importance": 0.1134
+      },
+      {
+        "feature": "text: \"fixed\"",
+        "importance": 0.1078
+      },
+      {
+        "feature": "text: \"team\"",
+        "importance": 0.1071
+      }
+    ]
+  },
+  "error_examples": [
+    {
+      "number": "INC1002486",
+      "true": "Manual Only",
+      "predicted": "Can Be Automated",
+      "text": "domain account locked out after password change . domain account locked out after password change. reported by  person  from  site . . account unlocked in aduc,"
+    },
+    {
+      "number": "INC1001485",
+      "true": "Can Be Automated",
+      "predicted": "Manual Only",
+      "text": "laptop not powering on . laptop not powering on. reported by  person  from  site . . display panel replaced under warranty."
+    },
+    {
+      "number": "INC1002186",
+      "true": "Manual Only",
+      "predicted": "Already Automated",
+      "text": "alert: low disk space on nwrapp001 (c: 93% used) . alert: low disk space on nwrapp001 (c: 93% used). reported by vikram iyer from  site . . user confirmed, clos"
+    },
+    {
+      "number": "INC1002479",
+      "true": "Manual Only",
+      "predicted": "Can Be Automated",
+      "text": "software installation request - visual studio code . software installation request - visual studio code. reported by  person  from  site . . installed postman r"
+    },
+    {
+      "number": "INC1000499",
+      "true": "Manual Only",
+      "predicted": "Can Be Automated",
+      "text": "batch job nwr_fin_03 failed with exit code 12 . batch job nwr_fin_03 failed with exit code 12. reported by  person  from  site . . root cause: schema change ups"
+    },
+    {
+      "number": "INC1000916",
+      "true": "Manual Only",
+      "predicted": "Can Be Automated",
+      "text": "slow network in  site  warehouse since morning . slow network in  site  warehouse since morning. reported by  person  from  site . . duplex mismatch fixed on up"
+    },
+    {
+      "number": "INC1000896",
+      "true": "Manual Only",
+      "predicted": "Can Be Automated",
+      "text": "high cpu alert nwrdb013 (97%) . high cpu alert nwrdb013 (97%). reported by isha iyer from  site . . capacity issue, vm resized after change approval."
+    },
+    {
+      "number": "INC1002044",
+      "true": "Can Be Automated",
+      "predicted": "Already Automated",
+      "text": "issue reported by user . issue reported by user. reported by  person  from  site . . reset through sspr portal, auto-closed."
+    }
+  ]
+}

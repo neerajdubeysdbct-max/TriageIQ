@@ -1,0 +1,17 @@
+{
+  "upload_id": 5,
+  "tickets": 1500,
+  "dim": 384,
+  "queries": 300,
+  "k": 8,
+  "ef_search": 100,
+  "pgvector_load_seconds": 4.7,
+  "recall_at_8": 0.9875,
+  "queries_with_full_recall": 0.92,
+  "tie_aware_recall_at_8": 1.0,
+  "exact_ms_p50": 0.19,
+  "exact_ms_p95": 0.28,
+  "hnsw_ms_p50": 4.53,
+  "hnsw_ms_p95": 6.81,
+  "note": "pgvector latency includes a database round trip; exact search is in-process"
+}

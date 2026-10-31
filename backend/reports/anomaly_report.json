@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-10-18T21:08:27",
+  "datasets": {
+    "train dump (northwind)": {
+      "tickets": 3000,
+      "true_anomalies": 75,
+      "base_rate": 0.025,
+      "results": [
+        {
+          "model": "Global MTTR z-score",
+          "average_precision": 0.1577,
+          "precision_at_k": 0.1733
+        },
+        {
+          "model": "Previous rule score",
+          "average_precision": 0.2695,
+          "precision_at_k": 0.4267
+        },
+        {
+          "model": "IsolationForest, no context",
+          "average_precision": 0.7669,
+          "precision_at_k": 0.7333
+        },
+        {
+          "model": "IsolationForest, per ticket type",
+          "average_precision": 0.8353,
+          "precision_at_k": 0.76
+        }
+      ],
+      "operating_point": {
+        "flagged": 90,
+        "precision": 0.6889,
+        "recall": 0.8267
+      },
+      "recall_by_anomaly_type": {
+        "mttr_outlier": 0.381,
+        "offhours_p1": 1.0,
+        "reassignment_storm": 1.0
+      }
+    },
+    "unseen dump (northwind_q3)": {
+      "tickets": 1500,
+      "true_anomalies": 37,
+      "base_rate": 0.0247,
+      "results": [
+        {
+          "model": "Global MTTR z-score",
+          "average_precision": 0.2607,
+          "precision_at_k": 0.2973
+        },
+        {
+          "model": "Previous rule score",
+          "average_precision": 0.3236,
+          "precision_at_k": 0.4595
+        },
+        {
+          "model": "IsolationForest, no context",
+          "average_precision": 0.7324,
+          "precision_at_k": 0.6486
+        },
+        {
+          "model": "IsolationForest, per ticket type",
+          "average_precision": 0.7476,
+          "precision_at_k": 0.7027
+        }
+      ],
+      "operating_point": {
+        "flagged": 45,
+        "precision": 0.5778,
+        "recall": 0.7027
+      },
+      "recall_by_anomaly_type": {
+        "mttr_outlier": 0.1538,
+        "offhours_p1": 1.0,
+        "reassignment_storm": 1.0
+      }
+    }
+  }
+}

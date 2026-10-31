@@ -1,0 +1,160 @@
+{
+  "upload_id": 7,
+  "labels": 300,
+  "before": {
+    "n": 2500,
+    "accuracy": 0.7308,
+    "recall": {
+      "Already Automated": 0.0067,
+      "Can Be Automated": 0.9731,
+      "Manual Only": 0.9274
+    }
+  },
+  "drift_before": {
+    "status": "significant",
+    "findings": [
+      {
+        "level": "significant",
+        "message": "only 58% of the words in these tickets are known to the text model"
+      },
+      {
+        "level": "significant",
+        "message": "100% of tickets have a assignment group never seen in training"
+      }
+    ],
+    "psi": {
+      "log_mttr_hours": 0.011,
+      "reassignment_count": 0.001,
+      "open_hour": 0.008
+    },
+    "known_vocabulary_share": 0.5761,
+    "unseen_category_share": {
+      "assignment_group": 1.0,
+      "category": 0.0,
+      "contact_type": 0.3752
+    },
+    "low_confidence_share": 0.01,
+    "validation_low_confidence_share": 0.0,
+    "recommendation": "This data differs from what the model was trained on. Label a random sample in the Review Queue to measure accuracy before relying on predictions."
+  },
+  "review_queue_estimate": {
+    "sample_size": 300,
+    "min_sample": 30,
+    "accuracy": 0.7467,
+    "ci95": [
+      0.6945,
+      0.7926
+    ],
+    "reportable": true,
+    "per_class": {
+      "Already Automated": {
+        "labelled": 68,
+        "recall": 0.0
+      },
+      "Can Be Automated": {
+        "labelled": 151,
+        "recall": 0.9669
+      },
+      "Manual Only": {
+        "labelled": 81,
+        "recall": 0.963
+      }
+    },
+    "confusion": {
+      "Already Automated": {
+        "Already Automated": 0,
+        "Can Be Automated": 59,
+        "Manual Only": 9
+      },
+      "Can Be Automated": {
+        "Already Automated": 0,
+        "Can Be Automated": 146,
+        "Manual Only": 5
+      },
+      "Manual Only": {
+        "Already Automated": 0,
+        "Can Be Automated": 3,
+        "Manual Only": 78
+      }
+    }
+  },
+  "retraining": {
+    "state": "done",
+    "version": "20261019-090850",
+    "promoted": true,
+    "reason": "+0.029 macro F1 overall, +0.424 on analyst labels, base change +0.006",
+    "candidate": {
+      "base": {
+        "macro_f1": 0.956,
+        "accuracy": 0.9567,
+        "n": 600
+      },
+      "analyst": {
+        "macro_f1": 1.0,
+        "accuracy": 1.0,
+        "n": 46
+      },
+      "all": {
+        "macro_f1": 0.9589,
+        "accuracy": 0.9598,
+        "n": 646
+      }
+    },
+    "active_before": {
+      "base": {
+        "macro_f1": 0.9497,
+        "accuracy": 0.95,
+        "n": 600
+      },
+      "analyst": {
+        "macro_f1": 0.5757,
+        "accuracy": 0.6957,
+        "n": 46
+      },
+      "all": {
+        "macro_f1": 0.93,
+        "accuracy": 0.9319,
+        "n": 646
+      }
+    },
+    "training_rows": 1991,
+    "analyst_labels": 301,
+    "analyst_gold": 46,
+    "mlflow_run_id": "22f6ecc1a11c4aa48e8a18bceac99372",
+    "started_at": "2026-10-19T09:08:50",
+    "finished_at": "2026-10-19T09:08:57",
+    "by": "admin"
+  },
+  "after_unlabelled": {
+    "n": 2200,
+    "accuracy": 0.9264,
+    "recall": {
+      "Already Automated": 0.88,
+      "Can Be Automated": 0.9529,
+      "Manual Only": 0.9213
+    }
+  },
+  "drift_after": {
+    "status": "significant",
+    "findings": [
+      {
+        "level": "significant",
+        "message": "only 59% of the words in these tickets are known to the text model"
+      }
+    ],
+    "psi": {
+      "log_mttr_hours": 0.007,
+      "reassignment_count": 0.0,
+      "open_hour": 0.007
+    },
+    "known_vocabulary_share": 0.5935,
+    "unseen_category_share": {
+      "assignment_group": 0.0,
+      "category": 0.0,
+      "contact_type": 0.0
+    },
+    "low_confidence_share": 0.0128,
+    "validation_low_confidence_share": 0.0045,
+    "recommendation": "This data differs from what the model was trained on. Label a random sample in the Review Queue to measure accuracy before relying on predictions."
+  }
+}

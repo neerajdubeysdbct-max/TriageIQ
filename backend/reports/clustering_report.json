@@ -1,0 +1,115 @@
+{
+  "generated_at": "2026-10-18T21:07:15",
+  "data": {
+    "tickets": "northwind_incidents.csv",
+    "n": 3000,
+    "true_subcategories": 16
+  },
+  "kmeans": [
+    {
+      "k": 8,
+      "silhouette": 0.1703,
+      "ari_subcategory": 0.3709,
+      "nmi_subcategory": 0.5463,
+      "nmi_tower": 0.3418
+    },
+    {
+      "k": 10,
+      "silhouette": 0.1937,
+      "ari_subcategory": 0.4017,
+      "nmi_subcategory": 0.5666,
+      "nmi_tower": 0.3982
+    },
+    {
+      "k": 12,
+      "silhouette": 0.2178,
+      "ari_subcategory": 0.4368,
+      "nmi_subcategory": 0.6124,
+      "nmi_tower": 0.4473
+    },
+    {
+      "k": 14,
+      "silhouette": 0.2455,
+      "ari_subcategory": 0.4798,
+      "nmi_subcategory": 0.6288,
+      "nmi_tower": 0.4817
+    },
+    {
+      "k": 16,
+      "silhouette": 0.2665,
+      "ari_subcategory": 0.5206,
+      "nmi_subcategory": 0.651,
+      "nmi_tower": 0.5112
+    },
+    {
+      "k": 18,
+      "silhouette": 0.2776,
+      "ari_subcategory": 0.4891,
+      "nmi_subcategory": 0.6534,
+      "nmi_tower": 0.5079
+    },
+    {
+      "k": 20,
+      "silhouette": 0.3086,
+      "ari_subcategory": 0.5272,
+      "nmi_subcategory": 0.6725,
+      "nmi_tower": 0.5335
+    },
+    {
+      "k": 22,
+      "silhouette": 0.3309,
+      "ari_subcategory": 0.4778,
+      "nmi_subcategory": 0.652,
+      "nmi_tower": 0.5061
+    },
+    {
+      "k": 25,
+      "silhouette": 0.3473,
+      "ari_subcategory": 0.513,
+      "nmi_subcategory": 0.6809,
+      "nmi_tower": 0.5173
+    },
+    {
+      "k": 28,
+      "silhouette": 0.3733,
+      "ari_subcategory": 0.4895,
+      "nmi_subcategory": 0.6823,
+      "nmi_tower": 0.5309
+    },
+    {
+      "k": 30,
+      "silhouette": 0.3875,
+      "ari_subcategory": 0.505,
+      "nmi_subcategory": 0.6939,
+      "nmi_tower": 0.536
+    },
+    {
+      "k": 35,
+      "silhouette": 0.4082,
+      "ari_subcategory": 0.4869,
+      "nmi_subcategory": 0.6988,
+      "nmi_tower": 0.5432
+    },
+    {
+      "k": 40,
+      "silhouette": 0.4404,
+      "ari_subcategory": 0.44,
+      "nmi_subcategory": 0.6774,
+      "nmi_tower": 0.5224
+    }
+  ],
+  "chosen_k_by_silhouette": 40,
+  "best_k_by_nmi_vs_truth": 35,
+  "hdbscan": {
+    "clusters": 73,
+    "noise_share": 0.0423,
+    "ari_subcategory": 0.2471,
+    "nmi_subcategory": 0.6293
+  },
+  "notes": [
+    "Silhouette rises monotonically with k on templated ticket text, so the pipeline limits k to 10-30 (groups an ops team can act on) and picks the silhouette-best k there.",
+    "Masking hosts / IDs / numbers before embedding was tried and lowered ARI; not used.",
+    "HDBSCAN fragments the data into many small clusters (low ARI); KMeans kept.",
+    "Bootstrap stability (ARI between KMeans fits on two 80% subsamples) was also tested for k = 10-30: noisy (about \u00b10.05) and flat (0.6-0.75), so it does not identify k either. Agreement with the true subcategories is similar for any k from 16 to 30 (ARI 0.45-0.55); with no label-free criterion separating them, the pipeline takes the silhouette-best k in the operational range, which on this data is the top of the range."
+  ]
+}

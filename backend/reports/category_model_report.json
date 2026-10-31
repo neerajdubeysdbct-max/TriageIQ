@@ -1,0 +1,158 @@
+{
+  "generated_at": "2026-10-18T21:01:28",
+  "data": {
+    "tickets": "northwind_incidents.csv",
+    "n": 3000,
+    "split": {
+      "train": 2400,
+      "test": 600
+    }
+  },
+  "levels": {
+    "l1": {
+      "target": "true_tower",
+      "n_classes": 8,
+      "test_results": [
+        {
+          "model": "Majority class",
+          "accuracy": 0.2717,
+          "macro_f1": 0.0534
+        },
+        {
+          "model": "Ticket's own category field",
+          "accuracy": 0.7033,
+          "macro_f1": 0.762
+        },
+        {
+          "model": "Legacy keyword rules",
+          "accuracy": 0.3567,
+          "macro_f1": 0.3241
+        },
+        {
+          "model": "Logistic regression (TF-IDF + fields)",
+          "accuracy": 0.9367,
+          "macro_f1": 0.9323
+        }
+      ],
+      "selective_accuracy": [
+        {
+          "threshold": 0.5,
+          "coverage": 0.965,
+          "accuracy": 0.9585
+        },
+        {
+          "threshold": 0.7,
+          "coverage": 0.9017,
+          "accuracy": 0.9852
+        },
+        {
+          "threshold": 0.9,
+          "coverage": 0.8317,
+          "accuracy": 0.996
+        }
+      ],
+      "top_confusions": [
+        {
+          "true": "AD",
+          "predicted": "End User",
+          "count": 8
+        },
+        {
+          "true": "End User",
+          "predicted": "AD",
+          "count": 8
+        },
+        {
+          "true": "Database",
+          "predicted": "Server",
+          "count": 6
+        },
+        {
+          "true": "Application",
+          "predicted": "Server",
+          "count": 2
+        },
+        {
+          "true": "End User",
+          "predicted": "Security",
+          "count": 2
+        },
+        {
+          "true": "End User",
+          "predicted": "Network",
+          "count": 2
+        }
+      ]
+    },
+    "l2": {
+      "target": "true_subcategory",
+      "n_classes": 16,
+      "test_results": [
+        {
+          "model": "Majority class",
+          "accuracy": 0.1383,
+          "macro_f1": 0.0152
+        },
+        {
+          "model": "Ticket's own subcategory field",
+          "accuracy": 0.7633,
+          "macro_f1": 0.8599
+        },
+        {
+          "model": "Logistic regression (TF-IDF + fields)",
+          "accuracy": 0.92,
+          "macro_f1": 0.9208
+        }
+      ],
+      "selective_accuracy": [
+        {
+          "threshold": 0.5,
+          "coverage": 0.9283,
+          "accuracy": 0.9695
+        },
+        {
+          "threshold": 0.7,
+          "coverage": 0.87,
+          "accuracy": 0.9923
+        },
+        {
+          "threshold": 0.9,
+          "coverage": 0.8033,
+          "accuracy": 1.0
+        }
+      ],
+      "top_confusions": [
+        {
+          "true": "Account unlock",
+          "predicted": "Password reset",
+          "count": 5
+        },
+        {
+          "true": "Password reset",
+          "predicted": "Add user to group",
+          "count": 4
+        },
+        {
+          "true": "Tablespace alert",
+          "predicted": "Disk space alert",
+          "count": 3
+        },
+        {
+          "true": "Account unlock",
+          "predicted": "Laptop hardware",
+          "count": 3
+        },
+        {
+          "true": "Disk space alert",
+          "predicted": "Service stopped",
+          "count": 3
+        },
+        {
+          "true": "Password reset",
+          "predicted": "Account unlock",
+          "count": 3
+        }
+      ]
+    }
+  }
+}

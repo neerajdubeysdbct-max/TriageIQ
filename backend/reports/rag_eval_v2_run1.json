@@ -1,0 +1,711 @@
+{
+  "generated_at": "2026-10-19T20:09:22",
+  "upload_id": 5,
+  "retrieval": {
+    "vector": {
+      "precision_at_8": 0.9062,
+      "hit_at_1": 0.8125
+    },
+    "keyword": {
+      "precision_at_8": 0.8672,
+      "hit_at_1": 0.8125
+    },
+    "hybrid": {
+      "precision_at_8": 0.9531,
+      "hit_at_1": 0.9375
+    }
+  },
+  "rag": {
+    "numeric_accuracy": 0.9333,
+    "out_of_scope_declined": 1.0,
+    "answers_with_invalid_citation": 0.0,
+    "unsupported_number_first_draft": 0.1429,
+    "answers_with_unsupported_number": 0.0,
+    "latency_ms_p50": 5942,
+    "latency_ms_p95": 13338
+  },
+  "baseline": null,
+  "results": [
+    {
+      "type": "numeric",
+      "question": "How many tickets are in this dataset?",
+      "expected": 1500,
+      "correct": true,
+      "answer": "1500 (No citation needed as the number is directly from the provided DATA.)",
+      "plan": {
+        "aggregate": {
+          "metric": "count",
+          "group_by": null,
+          "filters": {},
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "How many P1 tickets are there?",
+      "expected": 29,
+      "correct": true,
+      "answer": "There are 29 tickets where the priority matches 'P1'.",
+      "plan": {
+        "aggregate": {
+          "metric": "count",
+          "group_by": null,
+          "filters": {
+            "priority": "P1"
+          },
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "How many P2 tickets are there?",
+      "expected": 152,
+      "correct": true,
+      "answer": "There are 152 tickets where the priority matches 'P2'.",
+      "plan": {
+        "aggregate": {
+          "metric": "count",
+          "group_by": null,
+          "filters": {
+            "priority": "P2"
+          },
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "Which team handled the most tickets?",
+      "expected": "Service Desk",
+      "correct": true,
+      "answer": "The Service Desk team handled the most tickets, with 287 tickets in total. (Service Desk)",
+      "plan": {
+        "aggregate": {
+          "metric": "count",
+          "group_by": "team",
+          "filters": {},
+          "top": 1,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "Which team has the longest average resolution time?",
+      "expected": "App Support L3",
+      "correct": true,
+      "answer": "The team with the longest average resolution time is App Support L3, with an average resolution time of 88.35 hours.\n\nSupporting points:\n1. This is based on the data provided, which shows that App Support L3 has the highest average resolution time among all teams.\n2. The data includes 110 tickets for this team.\n3. No other team's average resolution time is provided in the data for comparison.",
+      "plan": {
+        "aggregate": {
+          "metric": "avg_resolution_hours",
+          "group_by": "team",
+          "filters": {},
+          "top": 1,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "What is the average resolution time across all tickets, in hours?",
+      "expected": 21.99,
+      "correct": true,
+      "answer": "The average resolution time across all tickets is 21.99 hours. (This figure is directly cited from the provided DATA.)",
+      "plan": {
+        "aggregate": {
+          "metric": "avg_resolution_hours",
+          "group_by": null,
+          "filters": {},
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "What share of P1 tickets breached their 4 hour SLA?",
+      "expected": 65.5,
+      "correct": true,
+      "answer": "The share of P1 tickets that breached their 4-hour SLA is 65.52%, as indicated by the provided DATA (computed over all tickets in the dataset).\n\nSupporting points:\n1. This figure is significantly higher than the overall breach rate of 17.87% for all tickets.\n2. P1 tickets are likely more critical, leading to higher urgency and potentially more frequent breaches.\n3. The higher breach rate for P1 tickets suggests that these tickets may require more immediate attention or have more stringent processes in place that are not being met.\n4. The difference in breach rates between P1 and overall tickets indicates that priority levels have a notable impact on adherence to SLAs.",
+      "plan": {
+        "aggregate": {
+          "metric": "sla_breach_rate",
+          "group_by": null,
+          "filters": {
+            "priority": "P1"
+          },
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "Which channel has the most tickets?",
+      "expected": "Event Management",
+      "correct": true,
+      "answer": "Event Management has the most tickets, with 465 tickets. (This is the highest number among the channels listed.)",
+      "plan": {
+        "aggregate": {
+          "metric": "count",
+          "group_by": "channel",
+          "filters": {},
+          "top": 1,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "How many tickets came in through the Self-service channel?",
+      "expected": 131,
+      "correct": true,
+      "answer": "131 tickets came in through the Self-service channel. (Citation from the provided DATA)",
+      "plan": {
+        "aggregate": {
+          "metric": "count",
+          "group_by": null,
+          "filters": {
+            "channel": "Self-service"
+          },
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "What is the average resolution time for Service Desk tickets, in hours?",
+      "expected": 2.74,
+      "correct": true,
+      "answer": "The average resolution time for Service Desk tickets is 2.74 hours. (This figure is for tickets where the team matches 'Service Desk', as specified in the DATA.)",
+      "plan": {
+        "aggregate": {
+          "metric": "avg_resolution_hours",
+          "group_by": null,
+          "filters": {
+            "team": "Service Desk"
+          },
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "What is the average resolution time for Desktop Support, in hours?",
+      "expected": 40.55,
+      "correct": true,
+      "answer": "The average resolution time for Desktop Support is 40.55 hours. (Desktop Support)",
+      "plan": {
+        "aggregate": {
+          "metric": "avg_resolution_hours",
+          "group_by": "team",
+          "filters": {
+            "team": "Desktop Support"
+          },
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "How many tickets did the Oracle DBA team handle?",
+      "expected": 132,
+      "correct": true,
+      "answer": "The Oracle DBA team handled 132 tickets. (Oracle DBA | 132)",
+      "plan": {
+        "aggregate": {
+          "metric": "count",
+          "group_by": "team",
+          "filters": {
+            "team": "Oracle DBA"
+          },
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "MTTR",
+      "expected": 21.99,
+      "correct": true,
+      "answer": "MTTR (Mean Time To Repair) is the same as the average resolution time in this dataset, which is 21.99 hours. (This is derived directly from the provided DATA.)",
+      "plan": {
+        "aggregate": {
+          "metric": "avg_resolution_hours",
+          "group_by": null,
+          "filters": {},
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "What is the TAT for P1 tickets?",
+      "expected": 53.08,
+      "correct": true,
+      "answer": "The TAT for P1 tickets is 53.08 hours. (This figure is for all tickets where the priority matches 'P1', as stated in the DATA.) For comparison, the average resolution time for all tickets is 21.99 hours.",
+      "plan": {
+        "aggregate": {
+          "metric": "avg_resolution_hours",
+          "group_by": null,
+          "filters": {
+            "priority": "P1"
+          },
+          "top": 10,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "numeric",
+      "question": "Which resolver closed the most tickets, and what is their MTTR?",
+      "expected": 0.63,
+      "correct": false,
+      "answer": "The dataset does not show which resolver closed the most tickets or their MTTR. The provided data only indicates that Diya Reddy had the highest average resolution time of 104.1 hours per ticket, but it does not provide information on the number of tickets closed by each resolver or their MTTR.",
+      "plan": {
+        "aggregate": {
+          "metric": "avg_resolution_hours",
+          "group_by": "resolver",
+          "filters": {},
+          "top": 1,
+          "order": "desc"
+        },
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "out_of_scope",
+      "question": "What is the capital of France?",
+      "correct": true,
+      "answer": "That question doesn't seem to be about this ticket dataset, so there is nothing to look up.",
+      "plan": {
+        "aggregate": null,
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": []
+      }
+    },
+    {
+      "type": "out_of_scope",
+      "question": "Who is the CEO of Northwind Retail?",
+      "correct": true,
+      "answer": "That question doesn't seem to be about this ticket dataset, so there is nothing to look up.",
+      "plan": {
+        "aggregate": null,
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": []
+      }
+    },
+    {
+      "type": "out_of_scope",
+      "question": "What will the weather be in Pune tomorrow?",
+      "correct": true,
+      "answer": "That question doesn't seem to be about this ticket dataset, so there is nothing to look up.",
+      "plan": {
+        "aggregate": null,
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": []
+      }
+    },
+    {
+      "type": "out_of_scope",
+      "question": "What was the root cause of the SAP outage on 1 January 2030?",
+      "correct": true,
+      "answer": "The dataset does not provide information about an SAP outage on 1 January 2030. The tickets listed are related to issues with SAP ECC, but the specific date mentioned in the question is not referenced in the provided tickets.",
+      "plan": {
+        "aggregate": null,
+        "search_query": "SAP outage 1 January 2030 root cause",
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "out_of_scope",
+      "question": "How much did the company spend on cloud hosting last year?",
+      "correct": true,
+      "answer": "That question doesn't seem to be about this ticket dataset, so there is nothing to look up.",
+      "plan": {
+        "aggregate": null,
+        "search_query": null,
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": []
+      }
+    },
+    {
+      "type": "explanatory",
+      "question": "What do we do when a server is running out of disk?",
+      "answer": "When a server is running out of disk space, the auto-remediation script is triggered to clear temporary files, bringing the disk usage back to a more manageable level. This is evident from the closure notes in multiple tickets, such as [INC2001230], [INC2000722], [INC2000479], [INC2001072], [INC2000636], [INC2000717], and [INC2000601], where the script cleared temp files to resolve the issue.\n\nThis approach is effective, as the average resolution time for these tickets is around 0.44 hours, with the longest resolution time being 1.13 hours [INC2000479]. The automation status indicates that this process is already automated, ensuring that such issues are handled promptly without manual intervention.",
+      "plan": {
+        "aggregate": null,
+        "search_query": "server running out of disk resolution",
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [
+          "INC2001230",
+          "INC2000722",
+          "INC2000479",
+          "INC2001072",
+          "INC2000636",
+          "INC2000717",
+          "INC2000601"
+        ],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "explanatory",
+      "question": "How are Windows services that stopped running brought back?",
+      "answer": "Windows services that stopped running were brought back in the following ways, based on the closure notes from the tickets:\n\n1. **Automatically by Monitoring Runbook**: This was the most common method, occurring in 5 out of 8 tickets. The monitoring runbook would automatically restart the service, as seen in tickets (<INC2000067>), (<INC2000255>), (<INC2000691>), and (<INC2000703>).\n\n2. **Manually by L1 Support**: In two tickets, the service was restarted manually by support staff. For example, ticket (<INC2000224>) shows that the service was started from `services.msc` by Diya Patel. Similarly, ticket (<INC2001120>) mentions that auto-heal restarted the SplunkForwarder service.\n\n3. **Auto-heal**: In one ticket, the service was restarted by auto-heal, as noted in ticket (<INC2001240>) where MSSQLSERVER was restarted automatically.\n\nThe tickets indicate that automated methods were more frequent and efficient, with the monitoring runbook being the primary automated solution.",
+      "plan": {
+        "aggregate": null,
+        "search_query": "Windows services stopped running resolution",
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "explanatory",
+      "question": "How is high processor usage on servers handled?",
+      "answer": "High processor usage on servers is typically handled through automated alerts and remediation processes. The tickets show that when a high CPU alert is triggered, such as for servers like NWRDC014, NWRAPP006, and NWRDC020, the alert is often auto-closed once the CPU usage returns to normal levels.\n\nSupporting points:\n1. [INC2000104] and [INC2000113] indicate that manual intervention was required, with the former taking 17.38 hours to resolve and the latter 1.34 hours. These tickets highlight that in cases where automation is not in place, resolution times can be significantly longer.\n2. [INC2000137], [INC2000322], [INC2000388], and [INC2000553] show that for servers like NWRAPP006, NWRBD018, NWRWEB010, and NWRAPP008, the alerts are automatically closed once the CPU usage returns to normal, indicating effective automated monitoring and remediation.\n3. The majority of tickets (6 out of 8) show that the alerts are auto-closed, suggesting a robust automated system in place for most cases.\n4. The Linux L1 team is responsible for resolving these issues, with automation playing a significant role in reducing the need for manual intervention.",
+      "plan": {
+        "aggregate": null,
+        "search_query": "high processor usage server resolution",
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [
+          "INC2000104",
+          "INC2000113",
+          "INC2000137",
+          "INC2000322",
+          "INC2000388",
+          "INC2000553"
+        ],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": false,
+        "unsupported_before_revision": [],
+        "blocked": false
+      }
+    },
+    {
+      "type": "explanatory",
+      "question": "How are Oracle tablespace usage alerts handled?",
+      "answer": "Oracle tablespace usage alerts are handled by adding datafiles to the relevant tablespace through automation. This is indicated by the closure notes in several tickets, such as [INC2001196], [INC2001048], [INC2000945], [INC2001204], and [INC2001152], where the automation added 2GB datafiles to the UNDOTBS1 or other tablespaces.\n\nThe resolution times for these tickets range from 0.24 hours to 0.91 hours, with the longest resolution time being 0.91 hours and the shortest being 0.24 hours. The average resolution time is not explicitly stated in the DATA, but the longest recorded resolution time is 0.91 hours.",
+      "plan": {
+        "aggregate": null,
+        "search_query": "Oracle tablespace usage alert resolution",
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [
+          "INC2001196",
+          "INC2001048",
+          "INC2000945",
+          "INC2001204",
+          "INC2001152"
+        ],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": true,
+        "unsupported_before_revision": [
+          "0.61"
+        ],
+        "blocked": false
+      }
+    },
+    {
+      "type": "explanatory",
+      "question": "How do users get their password reset?",
+      "answer": "Users get their password reset by the Service Desk team, typically through a call. The resolution process involves a password reset being performed and the new password being shared with the user over the call.\n\nSupporting points:\n1. All tickets in the dataset show the resolution method as a password reset followed by sharing the password over a call.\n2. The team handling these tickets is consistently the Service Desk.\n3. The automation status for these tickets indicates that this process can be automated, suggesting a standardized procedure.",
+      "plan": {
+        "aggregate": null,
+        "search_query": "password reset",
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": true,
+        "unsupported_before_revision": [
+          "0.86"
+        ],
+        "blocked": false
+      }
+    },
+    {
+      "type": "explanatory",
+      "question": "How are locked domain accounts handled?",
+      "answer": "Locked domain accounts are handled by unlocking the account in Active Directory Users and Computers (ADUC) or manually by the service desk team. The tickets show that the resolution typically involves:\n\n1. Unlocking the AD account manually by the service desk team [INC2001395] [INC2001132] [INC2000919] [INC2001180] [INC2000408] [INC2001331] [INC2001430].\n2. In one instance, the account was auto-unlocked by a self-service bot [INC2000876].",
+      "plan": {
+        "aggregate": null,
+        "search_query": "locked domain account resolution",
+        "error": null,
+        "repaired": false,
+        "linked_filters": []
+      },
+      "verification": {
+        "cited": [
+          "INC2001395",
+          "INC2001132",
+          "INC2000919",
+          "INC2001180",
+          "INC2000408",
+          "INC2001331",
+          "INC2001430",
+          "INC2000876"
+        ],
+        "invalid": [],
+        "unsupported_numbers": [],
+        "revised": true,
+        "unsupported_before_revision": [
+          "0.61"
+        ],
+        "blocked": false
+      }
+    }
+  ]
+}

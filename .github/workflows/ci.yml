@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_DB: triageiq
+          POSTGRES_USER: triageiq
+          POSTGRES_PASSWORD: ci-only-password
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U triageiq" --health-interval 5s --health-retries 20
+    env:
+      DATABASE_URL: postgresql://triageiq:ci-only-password@localhost:5432/triageiq
+      TRIAGEIQ_SECRET_KEY: ci-only-secret
+      MLFLOW_DISABLE_AGENT_HINT: "1"
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: backend/requirements*.txt
+      - name: Install dependencies (CPU-only torch)
+        run: |
+          pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements-dev.txt
+      - name: Migrate an empty database
+        run: python migrate.py
+      - name: Tests
+        run: pytest
+      - name: Train on the synthetic data and check the model card numbers still hold
+        run: |
+          python train_automation_model.py --tickets ../sample_data/northwind_incidents.csv --labels ../sample_data/northwind_ground_truth.csv
+          python - <<'EOF'
+          import json
+          r = json.load(open("reports/automation_model_report.json"))
+          xgb = next(t for t in r["test_results"] if t["model"].startswith("XGBoost"))
+          f1 = xgb["macro_f1"]
+          print("XGBoost test macro F1", f1)
+          assert f1 >= 0.93, f"macro F1 {f1} below the 0.93 floor"
+          EOF
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - name: Type check
+        run: npx tsc --noEmit
+      - name: Production build
+        run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
